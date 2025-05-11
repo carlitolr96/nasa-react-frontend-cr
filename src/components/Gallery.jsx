@@ -11,8 +11,9 @@ function Gallery({ photo, onDelete }) {
             ref={ref}
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.5, ease: 'easeOut' }}
-            className="relative rounded-xl shadow-md overflow-hidden"
+            whileHover={{ y: -5, scale: 1.03 }}
+            transition={{ duration: 0.3, ease: 'easeOut' }}
+            className="relative rounded-xl shadow-md overflow-hidden cursor-pointer"
         >
             <button
                 onClick={() => onDelete(photo.id)}

@@ -10,7 +10,7 @@ function ListGallery() {
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
-      const Nasa_Api_Key = '5m1VlDxWMBVmlUxp1baKYPOZkwgl0Zm15fqwpEu2';
+      const Nasa_Api_Key = import.meta.env.VITE_NASA_API_KEY;
       const response = await fetch(`https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=${Nasa_Api_Key}`);
       const data = await response.json();
       setPhotos(data.photos);
