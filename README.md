@@ -122,9 +122,8 @@ Copyright © Rights Developer Carlos Luis Lachapell Rivera
 
 Puedes subir esta app a servicios como:
 
-* **Vercel**
-* **Netlify**
-* **GitHub Pages** (con adaptación a static build)
+* **Vercel** https://nasa-react-frontend-cr.vercel.app/
+* **GitHub Pages**
 
 ---
 
