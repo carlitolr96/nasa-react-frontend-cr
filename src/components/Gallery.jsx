@@ -1,10 +1,35 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { FiTrash } from 'react-icons/fi';
+import Swal from 'sweetalert2';
 
 function Gallery({ photo, onDelete }) {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true });
+
+    const handleDelete = () => {
+        Swal.fire({
+            title: '¿Estás seguro?',
+            text: 'Esta acción no se puede deshacer.',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Sí, eliminar',
+            cancelButtonText: 'Cancelar'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                onDelete(photo.id);
+                Swal.fire({
+                    title: 'Eliminado',
+                    text: 'La foto ha sido eliminada.',
+                    icon: 'success',
+                    showConfirmButton: false,
+                    timer: 1700
+                });
+            }
+        });
+    };
 
     return (
         <motion.div
@@ -16,7 +41,7 @@ function Gallery({ photo, onDelete }) {
             className="relative rounded-xl shadow-md overflow-hidden cursor-pointer"
         >
             <button
-                onClick={() => onDelete(photo.id)}
+                onClick={handleDelete}
                 className="cursor-pointer absolute top-2 right-2 bg-white/80 hover:bg-red-500 text-red-600 hover:text-white p-2 rounded-full shadow-md transition duration-300"
             >
                 <FiTrash className="w-4 h-4" />
