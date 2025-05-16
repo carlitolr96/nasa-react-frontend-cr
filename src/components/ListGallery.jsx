@@ -46,10 +46,10 @@ function ListGallery() {
       </div>
 
       {hasMore && (
-        <div className="flex justify-center pt-4">
+        <div className="flex justify-center pt-4 mb-5">
           <button
             onClick={() => setCurrentPage(prev => prev + 1)}
-            className="border cursor-pointer border-white text-white px-5 py-2 text-sm sm:text-base rounded-xl hover:bg-white hover:text-black transition duration-300"
+            className="border cursor-pointer border-white text-white px-5 py-2 text-sm sm:text-base rounded-md hover:bg-white hover:text-black transition duration-300 font-[Poppins]"
           >
             Más Imágenes
           </button>
