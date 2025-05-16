@@ -3,14 +3,13 @@ import { motion, useViewportScroll, useTransform } from "framer-motion";
 
 function Footer() {
     const { scrollYProgress } = useViewportScroll();
-    // El footer sube 60px y aparece al llegar al final
     const y = useTransform(scrollYProgress, [0.8, 1], [60, 0]);
     const opacity = useTransform(scrollYProgress, [0.8, 1], [0, 1]);
 
     return (
         <motion.footer
             style={{ y, opacity }}
-            className="bg-white fixed bottom-0 left-0 w-full z-0 pointer-events-none"
+            className="bg-white fixed bottom-0 left-0 w-full z-50"
         >
             <div className="mx-auto max-w-screen-xl px-4 pt-16 pb-8 sm:px-6 lg:px-8 pointer-events-auto">
                 <div className="mx-auto max-w-md">
